@@ -73,7 +73,11 @@ body.menu-open {
 body::before {
     content: '';
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100svh;
     z-index: -1;
     background-image:
         radial-gradient(ellipse 900px 500px at 15% -10%, rgba(92, 133, 173, 0.14), transparent 60%),
@@ -204,6 +208,14 @@ h1 em, h2 em {
 nav#site-nav {
     display: flex;
     gap: 6px;
+}
+
+.nav-links {
+    display: contents;
+}
+
+.nav-partners {
+    display: none;
 }
 
 nav#site-nav a {
@@ -799,7 +811,12 @@ footer p {
    ================================= */
 @media (max-width: 768px) {
     .brand-text {
-        display: none;
+        font-size: 0.82rem;
+        line-height: 1.2;
+    }
+
+    .header-inner {
+        gap: 12px;
     }
 
     nav#site-nav {
@@ -824,6 +841,39 @@ footer p {
         width: 100%;
         font-size: 1.05rem;
         padding: 14px 16px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        flex: 1;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav-partners {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        width: 100%;
+        padding-top: 20px;
+        margin-top: 12px;
+        border-top: 1px solid var(--plum-line);
+    }
+    .nav-partners img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid var(--plum-700);
+        object-fit: cover;
+        cursor: pointer;
+        transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+    }
+    .nav-partners img:hover {
+        transform: scale(1.06);
+        border-color: var(--gold-500);
     }
 
     #nav-toggle {
@@ -877,6 +927,9 @@ footer p {
     #logo {
         width: 46px;
         height: 46px;
+    }
+    .brand-text {
+        font-size: 0.72rem;
     }
 
     .hero {
