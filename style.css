@@ -156,8 +156,6 @@ h1 em, h2 em {
     top: 0;
     z-index: 100;
     background: rgba(0, 31, 63, 0.94);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid transparent;
     transition: background 0.3s var(--ease), border-color 0.3s var(--ease), padding 0.3s var(--ease);
 }
