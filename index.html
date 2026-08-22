@@ -8,7 +8,7 @@
     <meta name="description" content="Scuola di danza a Voghera diretta da Annalisa Dalla Betta. Offriamo corsi di danza classica, moderna, contemporanea, hip hop e molto altro per tutte le età.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_v2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
@@ -21,11 +21,17 @@
         </a>
 
         <nav id="site-nav">
-            <a href="#scuola">La Scuola</a>
-            <a href="#insegnanti">Insegnanti</a>
-            <a href="#corsi">Corsi</a>
-            <a href="#galleria">Galleria</a>
-            <a href="#contatti">Contatti</a>
+            <div class="nav-links">
+                <a href="#scuola">La Scuola</a>
+                <a href="#insegnanti">Insegnanti</a>
+                <a href="#corsi">Corsi</a>
+                <a href="#galleria">Galleria</a>
+                <a href="#contatti">Contatti</a>
+            </div>
+            <div class="nav-partners">
+                <img src="immagini-insegnanti/opes.webp" alt="Icona 1" width="40" height="40" loading="lazy">
+                <img src="immagini-insegnanti/cibu.webp" alt="Icona 2" width="40" height="40" loading="lazy">
+            </div>
         </nav>
 
         <div class="header-right">
@@ -262,7 +268,7 @@
     // Modale galleria
     const modal = document.getElementById("modal-galleria");
     const modalImg = document.getElementById("modal-img");
-    const immaginiCliccabili = document.querySelectorAll(".grid-galleria img, #logo, .insegnante img, .header-icona");
+    const immaginiCliccabili = document.querySelectorAll(".grid-galleria img, #logo, .insegnante img, .header-icona, .nav-partners img");
     const closeBtn = document.querySelector(".close-btn");
 
     immaginiCliccabili.forEach(img => {
