@@ -860,6 +860,9 @@ footer p {
         flex: 1;
         justify-content: flex-start;
         width: 100%;
+        padding-top: 16px;
+        margin-top: 16px;
+        border-top: 1px solid var(--plum-line);
     }
 
     .nav-partners {
@@ -868,9 +871,6 @@ footer p {
         justify-content: center;
         gap: 16px;
         width: 100%;
-        padding-top: 16px;
-        margin-top: 16px;
-        border-top: 1px solid var(--plum-line);
     }
     .nav-partners img {
         width: 40px;
