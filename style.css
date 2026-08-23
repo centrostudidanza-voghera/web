@@ -640,6 +640,15 @@ main {
     transform: scale(1.02);
 }
 
+.gallery-hint {
+    display: none;
+    text-align: center;
+    margin: 14px 0 0;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: var(--ivory-500);
+}
+
 /* --- Finestra Modale (Lightbox) --- */
 .modal {
     display: none;
@@ -916,6 +925,36 @@ footer p {
     .scuola-immagini img:last-child {
         aspect-ratio: 4 / 3;
     }
+
+    /* --- Galleria: carosello solo su mobile --- */
+    .grid-galleria {
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 12px;
+        scroll-snap-type: x mandatory;
+        scroll-padding-left: 18px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 4px;
+        margin: 0 -18px;
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+    .grid-galleria::-webkit-scrollbar {
+        display: none;
+    }
+    .grid-galleria img {
+        flex: 0 0 74%;
+        max-width: 300px;
+        width: auto;
+        aspect-ratio: 4 / 5;
+        scroll-snap-align: start;
+    }
+
+    .gallery-hint {
+        display: block;
+    }
 }
 
 /* =================================
@@ -952,8 +991,9 @@ footer p {
     }
 
     .grid-galleria {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        margin: 0 -16px;
+        padding-left: 16px;
+        padding-right: 16px;
     }
 
     .corsi-pills li {
