@@ -724,6 +724,13 @@ main {
     border: 1px solid var(--plum-line);
 }
 
+/* Su desktop lasciamo più respiro verticale alle fotografie, evitando un ritaglio troppo stretto. */
+@media (min-width: 769px) {
+    .grid-galleria img {
+        aspect-ratio: 4 / 3;
+    }
+}
+
 .grid-galleria img:hover {
     opacity: 0.9;
     transform: scale(1.02);
@@ -1018,6 +1025,11 @@ footer p {
         grid-template-columns: 1fr;
     }
 
+    .insegnanti-grid,
+    .corsi-cards {
+        grid-template-columns: 1fr;
+    }
+
     .callout {
         flex-direction: column;
     }
@@ -1050,7 +1062,7 @@ footer p {
         scroll-snap-align: start;
     }
 
-    .gallery-control { flex-basis: 36px; width: 36px; height: 36px; font-size: 1rem; }
+    .gallery-control { display: none; }
 
     .gallery-hint {
         display: block;
