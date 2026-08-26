@@ -736,6 +736,13 @@ main {
     transform: scale(1.02);
 }
 
+/* La regola finale mantiene il formato 4:3 anche dopo gli stili comuni delle immagini. */
+@media (min-width: 769px) {
+    .grid-galleria img {
+        aspect-ratio: 4 / 3;
+    }
+}
+
 .gallery-hint {
     display: block;
     text-align: center;
