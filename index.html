@@ -288,11 +288,11 @@
 <footer>
     <div class="footer-inner">
         <img src="immagini-insegnanti/logo.webp" alt="Logo Scuola" width="40" height="40" loading="lazy">
-        <p>&copy; 2026 Centro Studi Danza Voghera. Tutti i diritti riservati.</p>
+        <p>&copy; <span id="copyright-year">2026</span> Centro Studi Danza Voghera. Tutti i diritti riservati.</p>
     </div>
     <div class="footer-legal">
-        <a href="https://www.iubenda.com/privacy-policy/73101432" class="iubenda-white iubenda-noiframe iubenda-embed" title="Privacy Policy ">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
-        <a href="https://www.iubenda.com/privacy-policy/73101432/cookie-policy" class="iubenda-white iubenda-noiframe iubenda-embed" title="Cookie Policy ">Cookie Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+        <a href="https://www.iubenda.com/privacy-policy/73101432" class="iubenda-white iubenda-noiframe iubenda-embed" title="Privacy Policy ">Privacy Policy</a>
+        <a href="https://www.iubenda.com/privacy-policy/73101432/cookie-policy" class="iubenda-white iubenda-noiframe iubenda-embed" title="Cookie Policy ">Cookie Policy</a>
     </div>
 </footer>
 
@@ -303,10 +303,27 @@
 
 <script>
     // Modale galleria
+    document.getElementById("copyright-year").textContent = new Date().getFullYear();
+
     const modal = document.getElementById("modal-galleria");
     const modalImg = document.getElementById("modal-img");
     const immaginiCliccabili = document.querySelectorAll(".grid-galleria img, #logo, .insegnante img, .header-icona, .nav-partners img");
     const closeBtn = document.querySelector(".close-btn");
+
+    // Le skills portano direttamente ai dettagli dei corsi.
+    const coursesTarget = document.querySelector("#corsi .corsi-cards");
+    document.querySelectorAll(".insegnante-skills li").forEach(skill => {
+        skill.setAttribute("role", "button");
+        skill.setAttribute("tabindex", "0");
+        const goToCourses = (event) => {
+            if (event.type === "keydown" && event.key !== "Enter" && event.key !== " ") return;
+            event.preventDefault();
+            const top = coursesTarget.getBoundingClientRect().top + window.scrollY - 24;
+            window.scrollTo({ top, behavior: "smooth" });
+        };
+        skill.addEventListener("click", goToCourses);
+        skill.addEventListener("keydown", goToCourses);
+    });
 
     const gallery = document.querySelector(".grid-galleria");
     const galleryStep = () => Math.max(gallery.clientWidth * 0.78, 260);
