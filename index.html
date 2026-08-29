@@ -327,7 +327,9 @@
     });
 
     const gallery = document.querySelector(".grid-galleria");
-    const galleryStep = () => Math.max(gallery.clientWidth * 0.78, 260);
+    const galleryStep = () => window.matchMedia("(max-width: 768px)").matches
+        ? Math.max(gallery.clientWidth * 0.78, 260)
+        : gallery.clientWidth;
     document.querySelector(".gallery-prev").addEventListener("click", () => gallery.scrollBy({ left: -galleryStep(), behavior: "smooth" }));
     document.querySelector(".gallery-next").addEventListener("click", () => gallery.scrollBy({ left: galleryStep(), behavior: "smooth" }));
 
